@@ -28,10 +28,10 @@ jobs:
           # Tag dynamique avec votre username secret
           tags: ${{secrets.DOCKER_USERNAME}}/course-survey-app:latest
 
-#  deploy:
-#    needs: build-and-push # Attendre la fin du build
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Trigger Render Deployment
+  deploy:
+    needs: build-and-push # Attendre la fin du build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render Deployment
         # Envoyer un signal Render pour mettre jour le site
-        #run: curl -X POST ${{secrets.RENDER_DEPLOY_HOOK}}
+        run: curl -X POST ${{secrets.RENDER_DEPLOY_HOOK}}
