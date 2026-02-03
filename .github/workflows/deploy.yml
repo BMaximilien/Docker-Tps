@@ -23,7 +23,8 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
         with:
-          context: .27push:true
+          context: .
+          push: true
           # Tag dynamique avec votre username secret
           tags: ${{secrets.DOCKER_USERNAME}}/course-survey-app:latest
 
